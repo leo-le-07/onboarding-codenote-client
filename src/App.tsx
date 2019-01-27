@@ -10,7 +10,6 @@ class App extends Component {
     super(props);
 
     this.state = {
-      isAuthenticated: false,
       isAuthenticating: true
     };
   }
@@ -18,7 +17,6 @@ class App extends Component {
   async componentDidMount() {
     try {
       await Auth.currentSession();
-      this.userHasAuthenticated(true);
     }
     catch (e) {
       if (e !== 'No current user') {
@@ -29,26 +27,16 @@ class App extends Component {
     this.setState({ isAuthenticating: false });
   }
 
-  userHasAuthenticated = authenticated => {
-    this.setState({ isAuthenticated: authenticated });
-  }
-
   handleLogout = async () => {
     await Auth.signOut();
-    this.userHasAuthenticated(false);
     this.props.history.push('/login');
   }
 
   render() {
-    const childProps = {
-      isAuthenticated: this.state.isAuthenticated,
-      userHasAuthenticated: this.userHasAuthenticated
-    }
-
     return (
       !this.state.isAuthenticating &&
       <div className="App container">
-        <ScreensRoot childProps={childProps} />
+        <ScreensRoot />
       </div>
     );
   }
