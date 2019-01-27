@@ -1,6 +1,6 @@
 # Welcome to CodeNote project.
 
-CodeNote is a onboarding project that helps codelink new member can get familiar with our company font-end technical stack such as:
+CodeNote is an onboarding project that helps codelink new member to get familiar with frontend tech stack at our company such as:
 - [ReactJS](https://reactjs.org/docs/getting-started.html)
 - [Redux](https://redux.js.org/)
 - [React Router](https://reacttraining.com/react-router/core/guides/philosophy)
@@ -9,9 +9,9 @@ CodeNote is a onboarding project that helps codelink new member can get familiar
 - [Jest](https://jestjs.io/)
 - [Enzyme](https://airbnb.io/enzyme/)
 
-We have 4 main tasks in order to make this project completely. Each task will include 2 parts: basic and optional requirements.
+We have 4 main tasks in order to complete this project. Each task includes 2 parts: basic and optional requirement.
 
-You have to complete the basic requirements first, after that you can move on optional requirements that require more time and challenges to complete.
+You have to complete the basic requirement first, after that you can move to optional requirement that requests more time and challenge to finish.
 
 ## Part I - Basic Features
 
