@@ -20,7 +20,7 @@ First, clone project to your local
 $ git clone git@github.com:leo-le-07/onboarding-codenote-client.git /your_folder
 $ cd your_folder
 ```
-Checkout and create new a branch
+Check out and create a new branch
 ```
 $ git fetch
 $ git checkout task-1/add-basic-features
@@ -37,13 +37,13 @@ Now you can access application at http://localhost:3000
 
 #### Basic requirement
 We already have Signup feature as example.
-Now we want to help a user can login with email (admin@example.com) and password (123456) at path `/login`.
+Now we want to help a user to log in with email (admin@example.com) and password (123456) at path `/login`.
 The UI should be like this
 ![Login](https://raw.githubusercontent.com/leo-le-07/onboarding-codenote-client/task-1/add-basic-features/src/assets/screenshots/login.png)
 
 _Hints:_
-- Currently we're using **aws-amplify** library to support us to interact with AWS services. In case log in, you can use method `Auth.signIn` from that library.
-- After log in successfully, you need to call `userHasAuthenticated` method, that passes from `App` component, to notify other components in our application that we already log in successfully.
+- Currently we're using **aws-amplify** library to support us to interact with AWS services. In case of login, you can use method `Auth.signIn` from that library.
+- After logging in successfully, you need to call `userHasAuthenticated` method. It passes from `App` component in order to notify other components in our application that we've already logged in.
 
 
 #### Optional requirement
@@ -53,21 +53,21 @@ The UI should be like this
 
 _Hints:_
 - In order to upload file attachment to S3, please use method `s3Upload` from `/libs/awsLib` library.
-- For creating new note, we can use `API` method from `aws-amplify` to make a create new note request. For example:
+- For creating new note, we can use `API` method from `aws-amplify` to make a new note request. For example:
 ```javascript
 API.post("notes", "/notes", { body: { attachment: 's3-url', content: 'our note content' }});
 ```
 
 #### Submit Pull Request
-After finish basic/optional features, please create a pull request to branch `task-1/add-basic-features`
+When finishing, please create a pull request to branch `task-1/add-basic-features`
 
 
 ## Part II - Working With Redux
-In part I, we manage user logged in state in `App` component as `isAuthenticated` internal state. Then passing that state as `childProps` to all nested children. It still works in the beginning but for real project with lots of states, it hards to manage in this way.
+In part I, we manage a user logged in state in `App` component as `isAuthenticated` internal state. Then we pass that state as `childProps` to all nested children. It still works in the beginning, however, it hards to manage in real projects.
 
-Redux is come up with a convenient way to share state in our application.
+Redux comes up with a convenient way to share state within our application.
 
-Checkout and create new a branch
+Check out and create a new branch
 ```
 $ git fetch
 $ git checkout task-2/working-with-redux
@@ -78,10 +78,10 @@ Install packages and start project
 $ yarn install
 $ yarn start
 ```
-You'll see the website is broken when trying to use some features because we already removed `isAuthenticated` internal state from `App` component and remove passing `childProps` to `ScreensRoot` component as well.
+You'll see the website broken when trying to use some features because we've already removed `isAuthenticated` internal state from `App` component as well as `childProps` from `ScreensRoot` component.
 
 #### Basic requirement
-The requirement is that we'll manage state by redux and make the website works normally again.
+Manage state by redux and make our website works normally again.
 
 #### Submit Pull Request
 When finishing, please create a pull request to branch `task-2/working-with-redux`
@@ -92,7 +92,7 @@ From ReactJS official page
 
 In this project, we prefer TypeScript to Flow type.
 
-Checkout and create new a branch
+Check out and create a new branch
 ```
 $ git fetch
 $ git checkout task-3/typescript-type-checking
@@ -109,12 +109,12 @@ If you run type checker command
 ```
 $ npm run checktype
 ```
-You'll see some errors related to 2 components we created in Part I: `Login` and `NewNote`
+You'll see some errors related to 2 components that we created in Part I: `Login` and `NewNote`.
 
-The requirement is that you need to add TypeScript to those components and make sure type checker passes with no error.
+You need to add TypeScript to those components and make sure type checker passes with no error.
 
 #### Optional requirement
-Take a look at file `tsconfig.json` in our project, you will see that we only cover type checkers for 2 components above. Try to include type checker all files inside `src` folder by replacing
+Take a look at file `tsconfig.json` in our project, you will see that we only cover type checkers for 2 components above. Try adding type checker for all files inside `src` folder by replacing
 ```json
   "include": [
     "src/screens/Login",
@@ -125,7 +125,7 @@ with
 ```json
   "include": ["src"]
 ```
-This time, we'll add TypeScript cover for all files in our project.
+This time, we'll add TypeScript to cover for all files in our project.
 
 #### Submit Pull Request
 When finishing, please create a pull request to branch `task-3/typescript-type-checking`
@@ -133,7 +133,7 @@ When finishing, please create a pull request to branch `task-3/typescript-type-c
 ## Part IV - Writing Unit Tests
 In this part, we'll add unit tests for our components with Jest and Enzyme support.
 
-Checkout and create new a branch
+Check out and create a new branch
 ```
 $ git fetch
 $ git checkout task-4/writing-tests
@@ -152,16 +152,16 @@ $ npm run test
 ```
 You'll see an error related to empty test for `Home` component.
 
-The requirement is that we'll fix that error by adding unit test for that component.
+We'll fix that error by adding unit tests for that component.
 
 #### Optional requirement
 Running this command to generate Jest coverage report
 ```
 $ npm run test --coverage
 ```
-Open coverage report file at `coverage/lcov-report/index.html` from root folder. You'll see that most of components in our project are not coveraged.
+Open coverage report file at `coverage/lcov-report/index.html` from root folder. You'll see that most of components in our project are not covered.
 
-The optional requirement is that we should add more unit tests to the rest components in order to increase test coverage points.
+You could add more unit tests to the rest components optionally in order to increase test coverage points.
 
 #### Submit Pull Request
 When finishing, please create a pull request to branch `task-4/writing-tests`
