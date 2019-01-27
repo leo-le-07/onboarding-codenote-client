@@ -89,6 +89,7 @@
     "setupFiles": [
       "react-app-polyfill/jsdom"
     ],
+    "setupTestFrameworkScriptFile": "<rootDir>/config/jest/setup.js",
     "testMatch": [
       "<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}",
       "<rootDir>/src/**/?(*.)(spec|test).{js,jsx,ts,tsx}"
@@ -132,6 +133,9 @@
     "@types/react-router-bootstrap": "^0.24.5",
     "@types/react-router-dom": "^4.3.1",
     "@types/webpack-env": "^1.13.6",
+    "enzyme": "^3.8.0",
+    "enzyme-adapter-react-16": "^1.8.0",
+    "jest-enzyme": "^7.0.1",
     "redux-devtools-extension": "^2.13.7"
   }
 }
