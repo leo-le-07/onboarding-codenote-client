@@ -1,12 +1,24 @@
 import React, { Component } from "react";
 import { FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import { API } from 'aws-amplify';
+import { History } from 'history';
 import LoaderButton from "../../components/LoaderButton";
 import { s3Upload } from '../../libs/awsLib'
 import config from "../../config";
 import "./index.css";
 
-export default class NewNote extends Component {
+interface IStates {
+  isLoading: boolean | null,
+  content: string
+}
+
+interface IProps {
+  history: History
+}
+
+export default class NewNote extends Component<IProps, IStates> {
+  file: any
+
   constructor(props) {
     super(props);
 
@@ -25,7 +37,7 @@ export default class NewNote extends Component {
   handleChange = event => {
     this.setState({
       [event.target.id]: event.target.value
-    });
+    } as any);
   }
 
   handleFileChange = event => {
