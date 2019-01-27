@@ -1,15 +1,15 @@
-
 # Welcome to CodeNote project.
 
 First thing first, please send me your github email account so that I can add you to this project as contributor.
 
 CodeNote is a onboarding project that helps codelink new member can get familiar with our company font-end technical stack such as:
-- ReactJS
-- Redux
-- React Router
-- ES6
-- Typescript
-- Jest
+- [ReactJS](https://reactjs.org/docs/getting-started.html)
+- [Redux](https://redux.js.org/)
+- [React Router](https://reacttraining.com/react-router/core/guides/philosophy)
+- [ES6](http://es6-features.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Jest](https://jestjs.io/)
+- [Enzyme](https://airbnb.io/enzyme/)
 
 We have 4 main tasks in order to make this project completely. Each task will include 2 parts: basic and optional requirements.
 
@@ -59,3 +59,28 @@ API.post("notes", "/notes", { body: { attachment: 's3-url', content: 'our note c
 
 #### Submit Pull Request
 After finish basic/optional features, please create a pull request to branch `task-1/add-basic-features`
+
+
+## Part II - Working with Redux
+In part I, we manage user logged in state in `App` component as `isAuthenticated` internal state. Then passing that state as `childProps` to all nested children. It still works in the beginning but for real project with lots of states, it hards to manage in this way.
+
+Redux is come up with a convenient way to share state in our application.
+
+#### Basic requirement: Login feature
+Checkout and create new a branch
+```
+$ git fetch
+$ git checkout task-2/working-with-redux
+$ git checkout -b task-2/working-with-redux-implement
+```
+Start project
+```
+$ npm start
+```
+You'll see the website is broken because we already removed `isAuthenticated` internal state from `App` component and remove passing `childProps` to `ScreensRoot` component as well.
+
+The requirement is that we'll manage state by redux and make the website works normally again.
+
+#### Submit Pull Request
+When finishing, please create a pull request to branch `task-2/working-with-redux`
+
