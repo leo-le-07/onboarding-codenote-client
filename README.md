@@ -19,7 +19,14 @@ You have to complete the basic requirements first, after that you can move on op
 
 First, clone project to your local
 ```
-$ git clone git@github.com:leo-le-07/onboarding-codenote-client.git -b task-1/add-basic-features /your/folder
+$ git clone git@github.com:leo-le-07/onboarding-codenote-client.git /your_folder
+$ cd your_folder
+```
+Checkout and create new a branch
+```
+$ git fetch
+$ git checkout task-1/add-basic-features
+$ git checkout -b task-1/add-basic-features-basic-implement
 ```
 
 Install packages and start project
@@ -66,14 +73,14 @@ Checkout and create new a branch
 ```
 $ git fetch
 $ git checkout task-2/working-with-redux
-$ git checkout -b task-2/working-with-redux-implement
+$ git checkout -b task-2/working-with-redux-basic-implement
 ```
 Install packages and start project
 ```
 $ yarn install
 $ yarn start
 ```
-You'll see the website is broken because we already removed `isAuthenticated` internal state from `App` component and remove passing `childProps` to `ScreensRoot` component as well.
+You'll see the website is broken when trying to use some features because we already removed `isAuthenticated` internal state from `App` component and remove passing `childProps` to `ScreensRoot` component as well.
 
 #### Basic requirement
 The requirement is that we'll manage state by redux and make the website works normally again.
@@ -91,7 +98,7 @@ Checkout and create new a branch
 ```
 $ git fetch
 $ git checkout task-3/typescript-type-checking
-$ git checkout -b task-3/typescript-type-checking-implement
+$ git checkout -b task-3/typescript-type-checking-basic-implement
 ```
 Install packages and start project
 ```
@@ -132,7 +139,7 @@ Checkout and create new a branch
 ```
 $ git fetch
 $ git checkout task-4/writing-tests
-$ git checkout -b task-4/writing-tests-implement
+$ git checkout -b task-4/writing-tests-basic-implement
 ```
 Install packages and start project
 ```
