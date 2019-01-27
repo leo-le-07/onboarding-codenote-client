@@ -1,10 +1,13 @@
 import React, { Component } from "react";
 import { FormGroup, FormControl, ControlLabel } from "react-bootstrap";
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { Auth } from 'aws-amplify';
 import LoaderButton from '../../components/LoaderButton';
+import { userHasAuthenticated } from '../../actions/authenticate';
 import "./index.css";
 
-export default class Login extends Component {
+class Login extends Component {
   constructor(props) {
     super(props);
 
@@ -74,3 +77,12 @@ export default class Login extends Component {
     );
   }
 }
+
+const mapDispatchToProps = (dispatch) => bindActionCreators(
+  {
+    userHasAuthenticated,
+  },
+  dispatch
+);
+
+export default connect(null, mapDispatchToProps)(Login);

@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { API } from 'aws-amplify';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { PageHeader, ListGroup, ListGroupItem } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
+import { userHasAuthenticated } from '../../actions/authenticate';
 import "./index.css";
 
 class Home extends Component {
@@ -87,4 +90,15 @@ class Home extends Component {
   }
 }
 
-export default Home;
+const mapStateToProps = (state) => ({
+  isAuthenticated: state.authenticate.isAuthenticated,
+});
+
+const mapDispatchToProps = (dispatch) => bindActionCreators(
+  {
+    userHasAuthenticated,
+  },
+  dispatch
+);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

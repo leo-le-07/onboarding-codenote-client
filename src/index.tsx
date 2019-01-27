@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from "react-router-dom";
 import Amplify from 'aws-amplify';
 import './index.css';
 import config from './config';
+import store from './store';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
@@ -32,9 +34,11 @@ Amplify.configure({
 });
 
 ReactDOM.render(
-  <Router>
-    <App />
-  </Router>,
+  <Provider store={store}>
+    <Router>
+      <App />
+    </Router>
+  </Provider>,
   document.getElementById('root')
 );
 
