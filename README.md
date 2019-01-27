@@ -1,44 +1,61 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# Welcome to CodeNote project.
 
-In the project directory, you can run:
+First thing first, please send me your github email account so that I can add you to this project as contributor.
 
-### `npm start`
+CodeNote is a onboarding project that helps codelink new member can get familiar with our company font-end technical stack such as:
+- ReactJS
+- Redux
+- React Router
+- ES6
+- Typescript
+- Jest
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+We have 4 main tasks in order to make this project completely. Each task will include 2 parts: basic and optional requirements.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+You have to complete the basic requirements first, after that you can move on optional requirements that require more time and challenges to complete.
 
-### `npm test`
+## Part I - Basic features
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+First, clone project to your local
+```
+$ git clone git@github.com:leo-le-07/onboarding-codenote-client.git -b task-1/add-basic-features /your/folder
+```
 
-### `npm run build`
+Install packages
+```
+$ npm install
+```
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Start project
+```
+$ npm start
+```
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+Now you can access application at http://localhost:3000
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### Basic requirement: Login feature
+We already have Signup feature as example.
+Now we want to help a user can login with email (admin@example.com) and password (123456) at path `/login`.
+The UI should be like this
+![Login](https://raw.githubusercontent.com/leo-le-07/onboarding-codenote-client/task-1/add-basic-features/src/assets/screenshots/login.png)
 
-### `npm run eject`
+_Hints:_
+- Currently we're using **aws-amplify** library to support us to interact with AWS services. In case log in, you can use method `Auth.signIn` from that library.
+- After log in successfully, you need to call `userHasAuthenticated` method, that passes from `App` component, to notify other components in our application that we already log in successfully.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### Optional requirement: Create note feature
+A user can create a note at path `/notes/new`.
+The UI should be like this
+![Create new note](https://raw.githubusercontent.com/leo-le-07/onboarding-codenote-client/task-1/add-basic-features/src/assets/screenshots/new-note.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+_Hints:_
+- In order to upload file attachment to S3, please use method `s3Upload` from `/libs/awsLib` library.
+- For creating new note, we can use `API` method from `aws-amplify` to make a create new note request. For example:
+```javascript
+API.post("notes", "/notes", { body: { attachment: 's3-url', content: 'our note content' }});
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### Submit Pull Request
+After finish basic/optional features, please create a pull request to branch `task-1/add-basic-features`
