@@ -1,7 +1,5 @@
 # Welcome to CodeNote project.
 
-First thing first, please send me your github email account so that I can add you to this project as contributor.
-
 CodeNote is a onboarding project that helps codelink new member can get familiar with our company font-end technical stack such as:
 - [ReactJS](https://reactjs.org/docs/getting-started.html)
 - [Redux](https://redux.js.org/)
