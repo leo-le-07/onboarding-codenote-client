@@ -1,12 +1,39 @@
 import React, { Component } from "react";
 import { API, Storage } from "aws-amplify";
+import { History } from 'history';
 import { FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
 import './index.css';
 import LoaderButton from '../../components/LoaderButton';
 import config from '../../config';
 import { s3Upload } from '../../libs/awsLib';
 
-class NoteDetail extends Component {
+interface INote {
+  noteId: string,
+  content: string,
+  attachment: string,
+  createdAt: string,
+}
+
+interface IStates {
+  isLoading: boolean | null,
+  isDeleting: boolean | null,
+  note: INote | null,
+  content: string,
+  attachmentURL: string | null,
+}
+
+interface IProps {
+  match: {
+    params: {
+      id: string,
+    }
+  },
+  history: History,
+}
+
+class NoteDetail extends Component<IProps, IStates> {
+  file: any
+
   constructor(props) {
     super(props);
 
@@ -42,7 +69,7 @@ class NoteDetail extends Component {
   }
 
   getNote() {
-    return API.get("notes", `/notes/${this.props.match.params.id}`);
+    return API.get("notes", `/notes/${this.props.match.params.id}`, {});
   }
 
   saveNote(note) {
@@ -52,7 +79,7 @@ class NoteDetail extends Component {
   }
 
   deleteNote() {
-    return API.del('notes', `/notes/${this.props.match.params.id}`);
+    return API.del('notes', `/notes/${this.props.match.params.id}`, {});
   }
 
   validateForm() {
@@ -66,7 +93,7 @@ class NoteDetail extends Component {
   handleChange = event => {
     this.setState({
       [event.target.id]: event.target.value
-    });
+    } as any);
   }
 
   handleFileChange = event => {

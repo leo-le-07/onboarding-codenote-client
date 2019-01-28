@@ -5,11 +5,26 @@ import {
   FormControl,
   ControlLabel
 } from "react-bootstrap";
+import { History } from 'history';
 import { Auth } from 'aws-amplify';
 import LoaderButton from '../../components/LoaderButton';
 import "./index.css";
 
-class Signup extends Component {
+interface IStates {
+  isLoading: boolean,
+  email: string,
+  password: string,
+  confirmPassword: string,
+  confirmationCode: string,
+  newUser: null | Object,
+}
+
+interface IProps {
+  userHasAuthenticated: (boolean) => void,
+  history: History,
+}
+
+class Signup extends Component<IProps, IStates> {
   constructor(props) {
     super(props);
 
@@ -38,7 +53,7 @@ class Signup extends Component {
   handleChange = event => {
     this.setState({
       [event.target.id]: event.target.value
-    });
+    } as any);
   }
 
   handleSubmit = async event => {

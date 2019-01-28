@@ -2,12 +2,19 @@ import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
+import { History } from 'history';
 import { Auth } from 'aws-amplify';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import { userHasAuthenticated } from '../../actions/authenticate';
 
-class Navigation extends React.Component {
+interface IProps {
+  history: History,
+  userHasAuthenticated: (boolean) => void,
+  isAuthenticated: boolean,
+}
+
+class Navigation extends React.Component<IProps> {
   handleLogout = async () => {
     await Auth.signOut();
     this.props.userHasAuthenticated(false);

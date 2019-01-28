@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import { API } from 'aws-amplify';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -7,7 +7,23 @@ import { LinkContainer } from 'react-router-bootstrap';
 import { userHasAuthenticated } from '../../actions/authenticate';
 import "./index.css";
 
-class Home extends Component {
+interface INote {
+  noteId: string,
+  content: string,
+  createdAt: string,
+}
+
+interface IStates {
+  isLoading: boolean,
+  notes: INote[],
+}
+
+interface IProps {
+  isAuthenticated: boolean,
+  userHasAuthenticated: (boolean) => void,
+}
+
+class Home extends Component<IProps, IStates> {
   constructor(props) {
     super(props);
 
@@ -33,11 +49,11 @@ class Home extends Component {
   }
 
   notes() {
-    return API.get("notes", "/notes");
+    return API.get("notes", "/notes", {});
   }
 
   renderNotesList(notes) {
-    return [{}].concat(notes).map(
+    return [{} as INote].concat(notes).map(
       (note, i) =>
         i !== 0
           ? <LinkContainer
