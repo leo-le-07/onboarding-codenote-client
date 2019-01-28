@@ -166,6 +166,27 @@ You could add more unit tests to the rest components optionally in order to incr
 #### Submit Pull Request
 When finishing, please create a pull request to branch `task-4/writing-tests`
 
+## Part V - Going Live
+This one is optional part. We'll use [Netlify](https://www.netlify.com) service to deploy our website. You can create a new Netlify account [here](https://app.netlify.com/signup?_ga=2.149143094.1893564152.1548645560-1818171859.1547794918) in case you don't have it yet.
+
+Install Netlify client on your local
+```
+$ npm install -g netlify-cli
+```
+
+Build your reactjs app
+```
+$ npm run build
+```
+
+Deploy to production
+```
+$ netlify deploy
+```
+Netlify will ask you some simple questions before deploying. When Netify asks you about `deploy path`, please enter `./build`. It means that Netify only deploys your `build` folder.
+
+Wait for a few seconds, you will see `Live Draft URL` link after Netlify deployment finished.
+
 ## Issues
 Feel free to submit issues and enhancement requests.
 
