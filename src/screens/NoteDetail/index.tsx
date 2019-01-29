@@ -15,8 +15,8 @@ interface INote {
 }
 
 interface IStates {
-  isLoading: boolean | null,
-  isDeleting: boolean | null,
+  isLoading: boolean,
+  isDeleting: boolean,
   note: INote | null,
   content: string,
   attachmentURL: string | null,
@@ -40,8 +40,8 @@ class NoteDetail extends Component<IProps, IStates> {
     this.file = null;
 
     this.state = {
-      isLoading: null,
-      isDeleting: null,
+      isLoading: false,
+      isDeleting: false,
       note: null,
       content: "",
       attachmentURL: null
@@ -68,7 +68,7 @@ class NoteDetail extends Component<IProps, IStates> {
     }
   }
 
-  getNote() {
+  getNote(): Promise<INote> {
     return API.get("notes", `/notes/${this.props.match.params.id}`, {});
   }
 
@@ -119,7 +119,7 @@ class NoteDetail extends Component<IProps, IStates> {
 
       await this.saveNote({
         content: this.state.content,
-        attachment: attachment || this.state.note.attachment
+        attachment: attachment || (this.state.note && this.state.note.attachment)
       })
 
       this.props.history.push("/");
@@ -170,7 +170,7 @@ class NoteDetail extends Component<IProps, IStates> {
                   <a
                     target="_blank"
                     rel="noopener noreferrer"
-                    href={this.state.attachmentURL}
+                    href={this.state.attachmentURL || ''}
                   >
                     {this.formatFilename(this.state.note.attachment)}
                   </a>

@@ -8,7 +8,7 @@ import config from "../../config";
 import "./index.css";
 
 interface IStates {
-  isLoading: boolean | null,
+  isLoading: boolean,
   content: string
 }
 
@@ -25,7 +25,7 @@ export default class NewNote extends Component<IProps, IStates> {
     this.file = null;
 
     this.state = {
-      isLoading: null,
+      isLoading: false,
       content: ""
     };
   }
