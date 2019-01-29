@@ -53,7 +53,7 @@ class Signup extends Component<IProps, IStates> {
   handleChange = event => {
     this.setState({
       [event.target.id]: event.target.value
-    } as any);
+    } as IStates);
   }
 
   handleSubmit = async event => {
