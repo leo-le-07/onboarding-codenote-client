@@ -8,6 +8,8 @@ import Home from './Home';
 import NoteDetail from './NoteDetail';
 import Signup from './Signup';
 import NotFound from './NotFound';
+import Login from './Login'
+import NoteNew from './NoteNew'
 
 const ScreensRoot = ({ childProps }) => (
   <Fragment>
@@ -16,6 +18,8 @@ const ScreensRoot = ({ childProps }) => (
       <AppliedRoute exact path="/" component={Home} props={childProps} />
       <UnauthenticatedRoute path="/signup" exact component={Signup} props={childProps} />
       <AuthenticatedRoute path="/notes/:id" exact component={NoteDetail} props={childProps} />
+      <UnauthenticatedRoute path="/login" exact component={Login} props={childProps} />
+      <AppliedRoute exact path="/notes/new" component={NoteNew} props={childProps} />
       <Route component={NotFound} />
     </Switch>
   </Fragment>
