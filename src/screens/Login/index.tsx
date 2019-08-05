@@ -41,13 +41,12 @@ class Login extends Component {
         this.setState({
           newUser
         });
+        this.props.userHasAuthenticated(true);
+        this.props.history.push("/");
       } catch (e) {
         alert(e.message);
       }
 
-      this.props.userHasAuthenticated(true);
-      this.props.history.push("/");
-  
       this.setState({ isLoading: false });
     }
 
