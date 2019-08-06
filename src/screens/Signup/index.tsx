@@ -8,6 +8,7 @@ import {
 import { Auth } from 'aws-amplify';
 import LoaderButton from '../../components/LoaderButton';
 import "./index.css";
+import {connect} from "react-redux";
 
 class Signup extends Component {
   constructor(props) {
@@ -155,5 +156,7 @@ class Signup extends Component {
     );
   }
 }
-
-export default Signup;
+const mapStateToProps = state => (
+  { authen: true }
+)
+export default connect (mapStateToProps,null)(Signup);
