@@ -4,6 +4,8 @@ import { Auth } from 'aws-amplify';
 import logo from './logo.svg';
 import './App.css';
 import ScreensRoot from './screens/Root';
+import {connect} from "react-redux";
+import {userHasAuthenticated} from './actions/authenticate';
 
 class App extends Component {
   constructor(props) {

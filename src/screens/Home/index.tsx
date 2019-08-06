@@ -3,6 +3,7 @@ import { API } from 'aws-amplify';
 import { PageHeader, ListGroup, ListGroupItem } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import "./index.css";
+import {connect} from "react-redux"
 
 class Home extends Component {
   constructor(props) {
@@ -87,4 +88,8 @@ class Home extends Component {
   }
 }
 
-export default Home;
+const mapStateToProps = (state) => ({
+  isAuthenticated: state.authen.isAuthenticated
+});
+
+export default connect (mapStateToProps) (Home);

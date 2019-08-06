@@ -1,7 +1,16 @@
+import {LOG_IN} from '../actions/authenticate';
 const initialState = {
   isAuthenticated: false,
 };
 
 export default function authenticate(state = initialState, action) { 
-  return state;
+  switch (action.type) {
+    case LOG_IN:
+      return {
+        ...state,
+        isAuthenticated: action.isLogin,
+      };
+    default:
+      return state;
+  }
 };
