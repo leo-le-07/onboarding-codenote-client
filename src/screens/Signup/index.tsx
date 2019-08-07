@@ -9,6 +9,8 @@ import { Auth } from 'aws-amplify';
 import LoaderButton from '../../components/LoaderButton';
 import "./index.css";
 import {connect} from "react-redux";
+import { bindActionCreators } from 'redux';
+import {userHasAuthenticated} from '../../actions/authenticate';
 
 class Signup extends Component {
   constructor(props) {
@@ -156,7 +158,10 @@ class Signup extends Component {
     );
   }
 }
-const mapStateToProps = state => (
-  { authen: true }
-)
-export default connect (mapStateToProps,null)(Signup);
+const mapDispatchToProps = (dispatch) => bindActionCreators(
+  {
+    userHasAuthenticated
+  },
+  dispatch
+);
+export default connect (null, mapDispatchToProps)(Signup);
