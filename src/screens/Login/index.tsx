@@ -36,7 +36,6 @@ class Login extends Component {
     try {
       await Auth.signIn(this.state.email, this.state.password);
       this.props.userHasAuthenticated(true);
-      console.log("passs");
     } catch (e) {
       alert(e.message);
       this.setState({ isLoading: false });

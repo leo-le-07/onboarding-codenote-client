@@ -1,8 +1,8 @@
-export const LOG_IN = "LOG_IN";
+export const LOGIN = "LOGIN";
 
 export function userHasAuthenticated (val) {
     return {
-      type: LOG_IN,
+      type: LOGIN,
       isLogin: val
     }
 }
