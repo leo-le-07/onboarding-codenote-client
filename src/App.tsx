@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { Auth } from 'aws-amplify';
+import { connect } from "react-redux";
 import logo from './logo.svg';
 import './App.css';
 import ScreensRoot from './screens/Root';

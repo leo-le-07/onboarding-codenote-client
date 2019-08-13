@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 import { Auth } from 'aws-amplify';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
+import { connect } from 'react-redux';
+import {userHasAuthenticated} from '../../actions/authenticate';
+import { bindActionCreators } from 'redux';
 
 class Navigation extends React.Component {
   handleLogout = async () => {
@@ -40,4 +43,15 @@ class Navigation extends React.Component {
   }
 }
 
-export default Navigation;
+const mapStateToProps = (state) => ({
+  isAuthenticated: state.authen.isAuthenticated
+});
+
+const mapDispatchToProps = (dispatch) => bindActionCreators(
+  {
+    userHasAuthenticated
+  },
+  dispatch
+);
+
+export default connect (mapStateToProps,mapDispatchToProps) (Navigation);

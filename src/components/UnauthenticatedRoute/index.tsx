@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from 'react-redux';
 import { Route, Redirect } from "react-router-dom";
 
 const querystring = (name, url = window.location.href) => {
@@ -17,8 +18,9 @@ const querystring = (name, url = window.location.href) => {
   return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
-const UnauthenticatedRoute = ({ component: C, props: cProps, ...rest }) => {
+const UnauthenticatedRoute = ({ component: C,props: cProps, ...rest }) => {
   const redirect = querystring("redirect");
+  
   return (
     <Route
       {...rest}
@@ -32,4 +34,8 @@ const UnauthenticatedRoute = ({ component: C, props: cProps, ...rest }) => {
   );
 };
 
-export default UnauthenticatedRoute;
+const mapStateToProps = (state) => ({
+  props: state.authen
+});
+
+export default connect (mapStateToProps)(UnauthenticatedRoute) ;
