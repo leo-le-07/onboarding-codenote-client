@@ -15,7 +15,9 @@ class NoteDetail extends Component {
     this.state = {
       isLoading: null,
       isDeleting: null,
-      note: null,
+      note: {
+        attachment: null,
+      },
       content: "",
       attachmentURL: null
     };

@@ -50,9 +50,11 @@ class Home extends Component {
               to="/notes/new"
             >
               <ListGroupItem>
-                <h4>
-                  <b>{"\uFF0B"}</b> Create a new note
-                </h4>
+                <LinkContainer to="/notes/new">
+                  <h4>
+                    <b>{"\uFF0B"}</b> Create a new note
+                  </h4>
+                </LinkContainer>
               </ListGroupItem>
             </LinkContainer>
     );
